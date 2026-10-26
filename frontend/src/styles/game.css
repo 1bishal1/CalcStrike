@@ -1,0 +1,387 @@
+.battle-screen {
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 30%, #15370D 0%, #0B120A 85%);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.battle-container {
+  max-width: 1050px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Top Action / Navigation Bar */
+.battle-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.battle-stop-btn {
+  background-color: transparent;
+  color: var(--color-sage);
+  border: 1px solid var(--border-sage);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.battle-stop-btn:hover {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+/* HUD Bar */
+.battle-hud {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(114, 142, 109, 0.35);
+  border-radius: 14px;
+  padding: 0.9rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hud-entity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hud-entity.player {
+  justify-content: flex-start;
+}
+
+.hud-entity.boss {
+  justify-content: flex-end;
+}
+
+.hud-entity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 140px;
+}
+
+.hud-entity-name {
+  color: var(--color-cream);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.hud-hp-bar-outer {
+  width: 100%;
+  height: 14px;
+  background-color: var(--bg-input);
+  border-radius: 7px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.hud-hp-bar-inner {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.35s ease, background-color 0.35s ease;
+}
+
+.hud-hp-bar-inner.player {
+  background-color: var(--hp-player);
+  box-shadow: 0 0 8px rgba(46, 213, 115, 0.4);
+}
+
+.hud-hp-bar-inner.boss {
+  background-color: var(--hp-boss);
+  box-shadow: 0 0 8px rgba(255, 71, 87, 0.4);
+}
+
+.hud-hp-text {
+  color: var(--color-sage);
+  font-size: 0.76rem;
+  font-weight: 500;
+}
+
+/* Center HUD Metrics */
+.hud-center {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hud-stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hud-stat-label {
+  color: var(--color-sage);
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.hud-stat-val {
+  color: var(--color-cream);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hud-stat-divider {
+  width: 1px;
+  height: 36px;
+  background-color: var(--border-subtle);
+}
+
+/* Circular Timer Widget */
+.hud-timer-circle {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hud-timer-circle svg {
+  transform: rotate(-90deg);
+}
+
+.hud-timer-value {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.hud-timer-number {
+  color: var(--color-gold);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.hud-timer-unit {
+  color: var(--color-sage);
+  font-size: 0.65rem;
+}
+
+/* Main Battle Cards Grid */
+.battle-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.battle-card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(114, 142, 109, 0.35);
+  border-radius: 14px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 290px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.battle-question-box {
+  background-color: #ffffff;
+  color: #15370D;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.battle-question-img {
+  max-width: 100%;
+  max-height: 230px;
+  object-fit: contain;
+  display: block;
+}
+
+.battle-question-equation {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: #0B120A;
+  white-space: pre-line;
+  line-height: 1.5;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Answer Input & Submit Form */
+.battle-answer-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.battle-answer-input {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  color: var(--color-cream);
+  font-size: 1.05rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.battle-answer-input:focus {
+  border-color: var(--border-sage);
+  box-shadow: 0 0 0 2px rgba(114, 142, 109, 0.25);
+}
+
+.battle-answer-input::placeholder {
+  color: rgba(114, 142, 109, 0.8);
+}
+
+.battle-submit-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: var(--color-gold);
+  color: #0B120A;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(229, 205, 130, 0.25);
+  transition: all 0.2s ease;
+}
+
+.battle-submit-btn:hover:not(:disabled) {
+  background-color: #f0db99;
+  transform: translateY(-1px);
+}
+
+/* Bottom status bar */
+.battle-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.battle-time-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-gold);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Feedback Banner */
+.battle-feedback-banner {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.battle-feedback-banner.correct {
+  background-color: rgba(46, 213, 115, 0.2);
+  border: 1px solid #2ed573;
+  color: #2ed573;
+}
+
+.battle-feedback-banner.wrong {
+  background-color: rgba(255, 71, 87, 0.2);
+  border: 1px solid #ff4757;
+  color: #ff6b6b;
+}
+
+/* Modal Dialog */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.modal-card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(114, 142, 109, 0.4);
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.modal-btn.cancel {
+  background-color: transparent;
+  border: 1px solid var(--border-sage);
+  color: var(--color-cream);
+}
+
+.modal-btn.confirm {
+  background-color: #ff4757;
+  color: #ffffff;
+  border: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .battle-hud {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .hud-entity.boss {
+    justify-content: flex-start;
+  }
+  .battle-main-grid {
+    grid-template-columns: 1fr;
+  }
+}

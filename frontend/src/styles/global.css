@@ -1,0 +1,94 @@
+:root {
+  --color-forest: #15370D;
+  --color-sage: #728E6D;
+  --color-gold: #E5CD82;
+  --color-cream: #FFF2B4;
+  --bg-deep: #0B120A;
+  --bg-card: #172317;
+  --bg-input: #101c10;
+  --border-subtle: #294228;
+  --border-sage: #728E6D;
+
+  --text-main: #FFF2B4;
+  --text-muted: #728E6D;
+  --text-gold: #E5CD82;
+
+  --hp-player: #2ed573;
+  --hp-boss: #ff4757;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle, clean dark forest gradient background */
+.app-screen {
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 25%, #15370D 0%, #0B120A 80%);
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.94;
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+input {
+  font-family: inherit;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage);
+}
